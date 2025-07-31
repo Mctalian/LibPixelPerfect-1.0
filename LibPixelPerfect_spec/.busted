@@ -1,0 +1,14 @@
+local busted = require("busted")
+local describe = busted.describe
+local before_each = busted.before_each
+local after_each = busted.after_each
+
+describe("LibPixelPerfect", function()
+  before_each(function()
+    -- setup code here
+  end)
+
+  after_each(function()
+    -- teardown code here
+  end)
+end)

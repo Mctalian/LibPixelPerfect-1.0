@@ -1,6 +1,9 @@
 # Compiled Lua sources
 luac.out
 
+luacov-html
+luacov.stats.out
+
 # luarocks build files
 *.src.rock
 *.zip
