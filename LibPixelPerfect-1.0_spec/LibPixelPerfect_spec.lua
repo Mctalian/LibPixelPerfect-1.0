@@ -44,7 +44,6 @@ function PixelUtil.GetNearestPixelSize(uiUnitSize, layoutScale, minPixels)
 
 	local uiUnitFactor = PixelUtil.GetPixelToUIUnitFactor();
 	local numPixels = Round((uiUnitSize * layoutScale) / uiUnitFactor);
-	local rawNumPixels = numPixels;
 	if minPixels then
 		if uiUnitSize < 0.0 then
 			if numPixels > -minPixels then
