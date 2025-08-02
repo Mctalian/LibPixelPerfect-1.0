@@ -1,3 +1,5 @@
+--@curseforge-project-slug:libpixelperfect-1-0@
+
 ---@class LibPixelPerfect
 local lib
 
