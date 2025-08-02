@@ -98,7 +98,7 @@ describe("LibPixelPerfect", function()
     local ns = {}
 
     before_each(function()
-        LibPixelPerfect = assert(loadfile("LibPixelPerfect/LibPixelPerfect.lua"))("LibPixelPerfect", ns)
+        LibPixelPerfect = assert(loadfile("LibPixelPerfect-1.0/LibPixelPerfect-1.0.lua"))("LibPixelPerfect-1.0", ns)
     end)
 
     describe("SetParentFrame", function()

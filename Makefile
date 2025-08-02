@@ -8,7 +8,7 @@ help:
 	@echo "  test-cov           - Run all tests with coverage"
 	@echo "  test-only           - Run tests tagged with 'only'"
 	@echo "  test-file FILE=...  - Run tests for a specific file"
-	@echo "                        Example: make test-file FILE=LibPixelPerfect_spec/Features/Currency_spec.lua"
+	@echo "                        Example: make test-file FILE=LibPixelPerfect-1.0_spec/Features/Currency_spec.lua"
 	@echo "  test-pattern PATTERN=... - Run tests matching a pattern"
 	@echo "                        Example: make test-pattern PATTERN=\"quantity mismatch\""
 	@echo "  test-ci             - Run tests for CI (TAP output)"
@@ -17,17 +17,17 @@ help:
 ROCKSBIN := $(HOME)/.luarocks/bin
 
 test:
-	@$(ROCKSBIN)/busted LibPixelPerfect_spec
+	@$(ROCKSBIN)/busted LibPixelPerfect-1.0_spec
 
 test-only:
-	@$(ROCKSBIN)/busted --tags=only LibPixelPerfect_spec
+	@$(ROCKSBIN)/busted --tags=only LibPixelPerfect-1.0_spec
 
 # Run tests with coverage
 test-cov:
-	@rm -rf luacov-html && rm -rf luacov.*out && mkdir -p luacov-html && $(ROCKSBIN)/busted --coverage LibPixelPerfect_spec && $(ROCKSBIN)/luacov && echo "\nCoverage report generated at luacov-html/index.html"
+	@rm -rf luacov-html && rm -rf luacov.*out && mkdir -p luacov-html && $(ROCKSBIN)/busted --coverage LibPixelPerfect-1.0_spec && $(ROCKSBIN)/luacov && echo "\nCoverage report generated at luacov-html/index.html"
 
 # Run tests for a specific file
-# Usage: make test-file FILE=LibPixelPerfect_spec/Features/Currency_spec.lua
+# Usage: make test-file FILE=LibPixelPerfect-1.0_spec/Features/Currency_spec.lua
 test-file:
 	@if [ -z "$(FILE)" ]; then \
 		echo "Usage: make test-file FILE=path/to/test_file.lua"; \
@@ -42,10 +42,10 @@ test-pattern:
 		echo "Usage: make test-pattern PATTERN=\"test description\""; \
 		exit 1; \
 	fi
-	@$(ROCKSBIN)/busted --verbose --filter="$(PATTERN)" LibPixelPerfect_spec
+	@$(ROCKSBIN)/busted --verbose --filter="$(PATTERN)" LibPixelPerfect-1.0_spec
 
 test-ci:
-	@rm -rf luacov-html && rm -rf luacov.*out && mkdir -p luacov-html && $(ROCKSBIN)/busted --coverage -o=TAP LibPixelPerfect_spec && $(ROCKSBIN)/luacov
+	@rm -rf luacov-html && rm -rf luacov.*out && mkdir -p luacov-html && $(ROCKSBIN)/busted --coverage -o=TAP LibPixelPerfect-1.0_spec && $(ROCKSBIN)/luacov
 
 lua_deps:
 	@luarocks install busted --local
